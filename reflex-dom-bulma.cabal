@@ -1,0 +1,44 @@
+cabal-version: 1.12
+name:           reflex-dom-bulma
+version:        0.1.0.0
+synopsis:       Utilities for working with bulma
+category:       Web
+author:         Isumi Feng
+maintainer:     contact@zelinf.net
+copyright:      2020 Isumi Feng
+license:        BSD3
+build-type:     Simple
+
+library
+  exposed-modules:
+      Reflex.Dom.Bulma.JSM
+      Reflex.Dom.Bulma.JSM.Types
+      Reflex.Dom.Bulma.Component.LinkButton
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , containers
+    , jsaddle
+    , jsaddle-dom
+    , lens
+    , reflex
+    , reflex-dom
+    , text
+    , time
+  if impl(ghcjs)
+    other-modules:
+        Reflex.Dom.Bulma.JSM.GHCJS
+  else
+    other-modules:
+        Reflex.Dom.Bulma.JSM.Warp
+    build-depends:
+        filepath
+      , jsaddle-warp
+      , wai
+      , wai-app-static
+      , warp
+      , websockets
+  default-language: Haskell2010
+  default-extensions: OverloadedStrings OverloadedLists
+  ghc-options: -Wall -Wno-simplifiable-class-constraints
