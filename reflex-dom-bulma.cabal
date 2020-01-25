@@ -13,7 +13,8 @@ library
   exposed-modules:
       Reflex.Dom.Bulma.JSM
       Reflex.Dom.Bulma.JSM.Types
-      Reflex.Dom.Bulma.Component.LinkButton
+      Reflex.Dom.Bulma.Component.Button
+      Reflex.Dom.Bulma.Component.Show
   hs-source-dirs:
       src
   build-depends:
