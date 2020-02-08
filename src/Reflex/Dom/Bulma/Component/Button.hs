@@ -1,6 +1,7 @@
 module Reflex.Dom.Bulma.Component.Button
   ( linkButton
-  , button
+  , buttonAttr
+  , buttonDynAttr
   ) where
 
 import           Data.Map.Strict (Map)
@@ -15,10 +16,18 @@ linkButton attr child = do
     (e, a) <- elAttr' "a" attr child
     pure (domEvent Click e, a)
 
-button :: MonadWidget t m
-       => Map Text Text
-       -> m a
-       -> m (Event t (), a)
-button attr child = do
+buttonAttr :: MonadWidget t m
+           => Map Text Text
+           -> m a
+           -> m (Event t (), a)
+buttonAttr attr child = do
     (e, a) <- elAttr' "button" attr child
+    pure (domEvent Click e, a)
+
+buttonDynAttr :: MonadWidget t m
+              => Dynamic t (Map Text Text)
+              -> m a
+              -> m (Event t (), a)
+buttonDynAttr attrDyn child = do
+    (e, a) <- elDynAttr' "button" attrDyn child
     pure (domEvent Click e, a)
