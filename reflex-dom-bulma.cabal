@@ -15,6 +15,7 @@ library
       Reflex.Dom.Bulma.JSM.Types
       Reflex.Dom.Bulma.Component.Button
       Reflex.Dom.Bulma.Component.Show
+      Reflex.Dom.Bulma.Util
   hs-source-dirs:
       src
   build-depends:
